@@ -44,7 +44,7 @@ query($login: String!, $cursor: String) {
   user(login: $login) {
     id
     createdAt
-    contributionsCollection { contributionCalendar { totalContributions } }
+    contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } } }
     repositories(ownerAffiliations: OWNER, first: 100, after: $cursor) {
       pageInfo { hasNextPage endCursor }
       nodes {
@@ -55,6 +55,11 @@ query($login: String!, $cursor: String) {
     }
   }
 }"""
+
+def calendar(cal):
+    days = [d for w in cal["weeks"] for d in w["contributionDays"]]
+    return {"start": days[0]["date"], "counts": [d["contributionCount"] for d in days]}
+
 
 def all_time_commits(created_at):
     """GitHub's own commit count (the one behind the contribution graph), summed over every
@@ -68,6 +73,23 @@ def all_time_commits(created_at):
                      "{ totalCommitContributions restrictedContributionsCount }")
     data = gql("query($login: String!) { user(login: $login) { " + " ".join(parts) + " } }", login=LOGIN)["user"]
     return sum(c["totalCommitContributions"] + c["restrictedContributionsCount"] for c in data.values())
+
+
+PROJECT_Q = """
+query($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) { pushedAt isPrivate primaryLanguage { name } }
+}"""
+
+
+def projects():
+    """Push date, visibility and main language for each repo listed under card.json "projects"."""
+    out = {}
+    for p in CARD.get("projects", []):
+        r = gql(PROJECT_Q, owner=LOGIN, name=p["repo"])["repository"]
+        if r:
+            out[p["repo"]] = {"language": (r["primaryLanguage"] or {}).get("name"),
+                              "pushed": r["pushedAt"][:10], "private": r["isPrivate"]}
+    return out
 
 
 def main():
@@ -101,6 +123,8 @@ def main():
         "commits": commits,
         "contributions": u["contributionsCollection"]["contributionCalendar"]["totalContributions"],
         "languages": languages,
+        "calendar": calendar(u["contributionsCollection"]["contributionCalendar"]),
+        "projects": projects(),
         "updated": datetime.date.today().isoformat(),
     }
     (ROOT / "stats.json").write_text(json.dumps(stats, indent=2) + "\n", encoding="utf-8")

@@ -128,5 +128,32 @@
   "languages_exclude_repos": [
     "llama2.c-master",
     "ng-video-lecture-master"
+  ],
+  "projects": [
+    {
+      "repo": "jetball",
+      "name": "JetGoal",
+      "desc": "multiplayer VR sport · Meta Quest"
+    },
+    {
+      "repo": "smart-search-chips",
+      "desc": "search filter chips for WordPress"
+    },
+    {
+      "repo": "QuickHatch",
+      "desc": "AI agent moving Windows to Linux"
+    },
+    {
+      "repo": "ai-agent-security-workbench",
+      "desc": "16th / 4,251 · Kaggle public LB"
+    },
+    {
+      "repo": "LemmaTrail",
+      "desc": "research graph for open math"
+    },
+    {
+      "repo": "Graduation-Project",
+      "desc": "transformer LM from scratch"
+    }
   ]
 }
