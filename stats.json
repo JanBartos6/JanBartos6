@@ -1,8 +1,21 @@
 {
-  "repos": 7,
+  "repos": 42,
   "forks": 2,
-  "commits": 864,
-  "contributions": 2626,
-  "languages": [["Python", 78], ["HTML", 21], ["CSS", 1]],
-  "updated": "2026-11-20"
+  "commits": 3099,
+  "contributions": 2901,
+  "languages": [
+    [
+      "Python",
+      41
+    ],
+    [
+      "C#",
+      20
+    ],
+    [
+      "Jupyter Notebook",
+      11
+    ]
+  ],
+  "updated": "2026-11-21"
 }
