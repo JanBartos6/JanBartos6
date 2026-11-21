@@ -1,0 +1,132 @@
+{
+  "user": "jan",
+  "host": "bartos",
+  "width": 60,
+  "lines": [
+    {
+      "type": "kv",
+      "key": "OS",
+      "value": "Czechia → Switzerland"
+    },
+    {
+      "type": "kv",
+      "key": "Host",
+      "value": "USI Lugano · BSc Informatics"
+    },
+    {
+      "type": "kv",
+      "key": "Kernel",
+      "value": "Python · PyTorch · NumPy"
+    },
+    {
+      "type": "kv",
+      "key": "Shell",
+      "value": "bash · Slurm · Terraform · AWS"
+    },
+    {
+      "type": "kv",
+      "key": "Agents",
+      "value": "Claude Code · Codex · Cursor"
+    },
+    {
+      "type": "kv",
+      "key": "Uptime",
+      "value": "writing code since 2016"
+    },
+    {
+      "type": "kv",
+      "key": "Languages.Code",
+      "value": "Python · HTML/CSS · Racket · Java · C"
+    },
+    {
+      "type": "kv",
+      "key": "Languages.Real",
+      "value": "Czech · English"
+    },
+    {
+      "type": "blank"
+    },
+    {
+      "type": "section",
+      "title": "Work"
+    },
+    {
+      "type": "kv",
+      "key": "Trained",
+      "value": "100+ language models from scratch"
+    },
+    {
+      "type": "kv",
+      "key": "Research",
+      "value": "Hive Spirit, Tomáš Mikolov's team"
+    },
+    {
+      "type": "kv",
+      "key": "Kaggle",
+      "value": "16th / 4,251 · AI Agent Security (public LB)"
+    },
+    {
+      "type": "kv",
+      "key": "DrivenData",
+      "value": "top 6.6% Pose Bowl · top 13.2% Kelp Wanted"
+    },
+    {
+      "type": "kv",
+      "key": "Shipping",
+      "value": "JetGoal · multiplayer VR on Quest"
+    },
+    {
+      "type": "kv",
+      "key": "Open source",
+      "value": "QuickHatch · Smart Search Chips"
+    },
+    {
+      "type": "blank"
+    },
+    {
+      "type": "section",
+      "title": "Contact"
+    },
+    {
+      "type": "kv",
+      "key": "Email",
+      "value": "honz.bartos@gmail.com"
+    },
+    {
+      "type": "kv",
+      "key": "LinkedIn",
+      "value": "jan-bartos-5747022a3"
+    },
+    {
+      "type": "blank"
+    },
+    {
+      "type": "section",
+      "title": "GitHub Stats"
+    },
+    {
+      "type": "kv",
+      "key": "Repos",
+      "value": "{repos} {{+{forks} forks}}"
+    },
+    {
+      "type": "kv",
+      "key": "Commits",
+      "value": "{commits}"
+    },
+    {
+      "type": "kv",
+      "key": "Contributions (last year)",
+      "value": "{contributions}"
+    },
+    {
+      "type": "kv",
+      "key": "Top languages",
+      "value": "{languages}"
+    }
+  ],
+  "languages_exclude_repos": [
+    "llama2.c-master",
+    "ng-video-lecture-master"
+  ]
+}
