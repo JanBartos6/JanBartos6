@@ -43,6 +43,7 @@ USER_Q = """
 query($login: String!, $cursor: String) {
   user(login: $login) {
     id
+    createdAt
     contributionsCollection { contributionCalendar { totalContributions } }
     repositories(ownerAffiliations: OWNER, first: 100, after: $cursor) {
       pageInfo { hasNextPage endCursor }
@@ -55,12 +56,18 @@ query($login: String!, $cursor: String) {
   }
 }"""
 
-COMMITS_Q = """
-query($owner: String!, $name: String!, $id: ID!) {
-  repository(owner: $owner, name: $name) {
-    defaultBranchRef { target { ... on Commit { history(author: {id: $id}) { totalCount } } } }
-  }
-}"""
+def all_time_commits(created_at):
+    """GitHub's own commit count (the one behind the contribution graph), summed over every
+    year since the account was created. Includes private repos (token has `repo`) and repos
+    you contributed to but don't own; the API allows at most one year per query window."""
+    now = datetime.datetime.now(datetime.timezone.utc)
+    parts = []
+    for y in range(int(created_at[:4]), now.year + 1):
+        end = now.strftime("%Y-%m-%dT%H:%M:%SZ") if y == now.year else f"{y}-12-31T23:59:59Z"
+        parts.append(f'y{y}: contributionsCollection(from: "{y}-01-01T00:00:00Z", to: "{end}") '
+                     "{ totalCommitContributions restrictedContributionsCount }")
+    data = gql("query($login: String!) { user(login: $login) { " + " ".join(parts) + " } }", login=LOGIN)["user"]
+    return sum(c["totalCommitContributions"] + c["restrictedContributionsCount"] for c in data.values())
 
 
 def main():
@@ -76,12 +83,9 @@ def main():
     own = [r for r in repos if not r["isFork"]]
     forks = len(repos) - len(own)
 
-    commits = 0
+    commits = all_time_commits(u["createdAt"])
     langs = {}
     for r in own:
-        ref = gql(COMMITS_Q, owner=LOGIN, name=r["name"], id=u["id"])["repository"]["defaultBranchRef"]
-        if ref:
-            commits += ref["target"]["history"]["totalCount"]
         if r["name"] in LANG_EXCLUDE:
             continue
         for e in r["languages"]["edges"]:
