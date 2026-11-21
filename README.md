@@ -10,4 +10,4 @@
 </picture>
 -->
 
-<sub>[JetGoal beta key](mailto:honz.bartos@gmail.com?subject=JetGoal%20beta%20key) · [QuickHatch](https://github.com/JanBartos6/QuickHatch) · [AI Agent Security Workbench](https://github.com/JanBartos6/ai-agent-security-workbench) · [Smart Search Chips](https://github.com/JanBartos6/smart-search-chips) · [LLM from scratch](https://github.com/JanBartos6/Graduation-Project) · [LinkedIn](https://www.linkedin.com/in/jan-bartos-5747022a3/)</sub>
+<sub>[JetGoal beta key](mailto:honz.bartos@gmail.com?subject=JetGoal%20beta%20key) · [QuickHatch](https://github.com/JanBartos6/QuickHatch) · [AI Agent Security Workbench](https://github.com/JanBartos6/ai-agent-security-workbench) · [Smart Search Chips](https://github.com/JanBartos6/smart-search-chips) · [LLM from scratch](https://github.com/JanBartos6/llm-from-scratch) · [LinkedIn](https://www.linkedin.com/in/jan-bartos-5747022a3/)</sub>
