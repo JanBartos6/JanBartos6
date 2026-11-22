@@ -1,32 +1,25 @@
 {
-  "repos": 42,
+  "repos": 44,
   "forks": 2,
-  "commits": 3336,
-  "contributions": 2907,
+  "commits": 3361,
+  "contributions": 2934,
   "languages": [
     [
       "Python",
-      41
+      40
     ],
     [
       "C#",
-      20
+      19
     ],
     [
-      "Jupyter Notebook",
-      11
+      "HTML",
+      14
     ]
   ],
   "calendar": {
-    "start": "2025-11-16",
+    "start": "2025-11-23",
     "counts": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0,
       0,
       0,
@@ -390,7 +383,8 @@
       43,
       4,
       13,
-      12
+      23,
+      16
     ]
   },
   "projects": {
@@ -425,5 +419,5 @@
       "private": false
     }
   },
-  "updated": "2026-11-21"
+  "updated": "2026-11-22"
 }
