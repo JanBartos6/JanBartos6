@@ -63,7 +63,7 @@
     {
       "type": "kv",
       "key": "Kaggle",
-      "value": "16th / 4,251 · AI Agent Security (public LB)"
+      "value": "AI Agent Security · peaked 16th / 4,251 (public)"
     },
     {
       "type": "kv",
@@ -145,7 +145,7 @@
     },
     {
       "repo": "ai-agent-security-workbench",
-      "desc": "16th / 4,251 · Kaggle public LB"
+      "desc": "attack replay and scoring for AI agents"
     },
     {
       "repo": "LemmaTrail",
